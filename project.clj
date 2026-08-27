@@ -55,9 +55,8 @@
 
    [org.slf4j/slf4j-api "1.7.25"]
    [org.slf4j/slf4j-simple "1.7.25"]
-
-   [junit/junit "4.13.2"]
-   ]
+   
+   [junit/junit "4.13.2" :scope "test"]]
 
   :source-paths
   ["src/main/clojure"]
@@ -76,27 +75,26 @@
   {:uberjar {;;:aot      :all
              :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}
    :dev     {:source-paths ["dev"]
-             :dependencies [[org.clojure/tools.namespace "0.2.3"]
-                            [org.clojure/java.classpath "0.2.0"]]
-             :plugins      [[com.jakemccrary/lein-test-refresh "0.25.0"]
-             ;               [venantius/ultra "0.6.0"]
-             ]                            }}
+             :dependencies [;;
+                           ;[org.clojure/tools.namespace "0.2.3"]
+                           ;[org.clojure/java.classpath "0.2.0"]
+                             ]
+             :plugins      [;;
+                           ;[com.jakemccrary/lein-test-refresh "0.25.0"]
+                           ;[venantius/ultra "0.6.0"]
+                             ]}}
 
   :plugins
-  [[dev.weavejester/lein-cljfmt "0.12.0"]
-   [lein-marginalia "0.9.2"]
-   [lein-javac "1.2.1-SNAPSHOT"]]
+  [;[dev.weavejester/lein-cljfmt "0.12.0"]
+  ;[lein-marginalia "0.9.2"]
+  ;[lein-javac "1.2.1-SNAPSHOT"]
+    ]
+
+  :pom-addition
+  [:properties
+   [:maven.compiler.source "17"]
+   [:maven.compiler.target "17"]
+   [:maven.compiler.release "17"]]
 
   :clean-targets ^{:protect false} ["target/public"]
-  :aliases
-  {"fig"       ["trampoline" "run" "-m" "figwheel.main"]
-   "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "flappy" "-r"]}
-
- :pom-addition
- [:properties
-  [:maven.compiler.source "17"]
-  [:maven.compiler.target "17"]
-  [:maven.compiler.release "17"]]
-
-  ;{:user {:plugins [[venantius/ultra "0.6.0"]]}}
   )

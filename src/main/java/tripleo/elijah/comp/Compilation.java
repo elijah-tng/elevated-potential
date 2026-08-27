@@ -97,7 +97,7 @@ public interface Compilation /*extends GCompilation*/ {
 
 	boolean hasClojureSupport();
 
-	class CompilationConfig implements GCompilationConfig {
+	public class CompilationConfig implements GCompilationConfig {
 		public boolean showTree = false;
 		public boolean silent   = false;
 

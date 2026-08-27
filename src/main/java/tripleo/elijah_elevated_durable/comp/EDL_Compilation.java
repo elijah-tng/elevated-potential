@@ -175,7 +175,7 @@ public class EDL_Compilation implements EDL_ICompilation, EventualRegister {
 	public String getProjectName() {
 		return getRootCI().getName();
 	}
-
+	
 	@Override
 	public int errorCount() {
 		return errSink.errorCount();
